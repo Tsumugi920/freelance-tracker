@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Freelance Tracker · 自由职业管理</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <span class="logo">◈</span>
+        <div class="brand-text">
+          <h1>Freelance Tracker</h1>
+          <p>自由职业管理 · 客户 / 项目 / 账单 / 工时</p>
+        </div>
+      </div>
+      <nav class="tabs" id="tabs" aria-label="主导航">
+        <button class="tab active" data-tab="clients">客户</button>
+        <button class="tab" data-tab="projects">项目</button>
+        <button class="tab" data-tab="invoices">账单</button>
+        <button class="tab" data-tab="time">工时</button>
+        <button class="tab" data-tab="stats">统计</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- 客户 -->
+    <section class="panel active" id="panel-clients">
+      <div class="panel-head">
+        <div>
+          <h2>客户</h2>
+          <p class="muted">管理合作客户与联系方式。</p>
+        </div>
+      </div>
+
+      <form id="client-form" class="card form-card">
+        <input type="hidden" id="client-id" />
+        <div class="form-grid">
+          <div class="field">
+            <label for="client-name">客户姓名 / 称呼 *</label>
+            <input id="client-name" type="text" placeholder="例：林晚晴" required />
+          </div>
+          <div class="field">
+            <label for="client-company">公司 / 团队</label>
+            <input id="client-company" type="text" placeholder="例：晚晴传媒" />
+          </div>
+          <div class="field">
+            <label for="client-email">邮箱</label>
+            <input id="client-email" type="email" placeholder="name@example.com" />
+          </div>
+          <div class="field">
+            <label for="client-phone">电话</label>
+            <input id="client-phone" type="text" placeholder="138-0000-0000" />
+          </div>
+          <div class="field field-wide">
+            <label for="client-notes">备注</label>
+            <input id="client-notes" type="text" placeholder="合作偏好、结算方式等" />
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary" id="client-submit">添加客户</button>
+          <button type="button" class="btn btn-ghost hidden" id="client-cancel">取消编辑</button>
+        </div>
+      </form>
+
+      <div id="client-list" class="card-grid"></div>
+    </section>
+
+    <!-- 项目 -->
+    <section class="panel" id="panel-projects">
+      <div class="panel-head">
+        <div>
+          <h2>项目</h2>
+          <p class="muted">跟踪项目状态、截止日期与报酬，状态可直接在表格下拉框里切换。</p>
+        </div>
+      </div>
+
+      <form id="project-form" class="card form-card">
+        <input type="hidden" id="project-id" />
+        <div class="form-grid">
+          <div class="field">
+            <label for="project-client">所属客户 *</label>
+            <select id="project-client" required>
+              <option value="">加载中…</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="project-name">项目名称 *</label>
+            <input id="project-name" type="text" placeholder="例：官网重构" required />
+          </div>
+          <div class="field">
+            <label for="project-status">状态</label>
+            <select id="project-status">
+              <option value="planning">未开始</option>
+              <option value="in_progress" selected>进行中</option>
+              <option value="completed">已完成</option>
+              <option value="paused">已暂停</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="project-fee">项目报酬（元）</label>
+            <input id="project-fee" type="number" min="0" step="100" placeholder="例：28000" />
+          </div>
+          <div class="field">
+            <label for="project-rate">时薪参考（元/小时）</label>
+            <input id="project-rate" type="number" min="0" step="10" placeholder="例：350" />
+          </div>
+          <div class="field">
+            <label for="project-start">开始日期</label>
+            <input id="project-start" type="date" />
+          </div>
+          <div class="field">
+            <label for="project-deadline">截止日期</label>
+            <input id="project-deadline" type="date" />
+          </div>
+          <div class="field field-wide">
+            <label for="project-desc">项目说明</label>
+            <input id="project-desc" type="text" placeholder="一句话描述交付内容" />
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary" id="project-submit">新增项目</button>
+          <button type="button" class="btn btn-ghost hidden" id="project-cancel">取消编辑</button>
+        </div>
+      </form>
+
+      <div class="card table-card">
+        <table>
+          <thead>
+            <tr>
+              <th>项目</th>
+              <th>客户</th>
+              <th>状态</th>
+              <th>截止</th>
+              <th class="num">报酬</th>
+              <th class="num">开票 / 已收</th>
+              <th class="num">工时</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody id="project-list"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 账单 -->
+    <section class="panel" id="panel-invoices">
+      <div class="panel-head">
+        <div>
+          <h2>账单与收款</h2>
+          <p class="muted">开票、跟踪收款状态，一键标记收款。</p>
+        </div>
+        <div class="filter-group" id="invoice-filters">
+          <button type="button" class="filter-btn active" data-filter="all">全部</button>
+          <button type="button" class="filter-btn" data-filter="unpaid">未收款</button>
+          <button type="button" class="filter-btn" data-filter="paid">已收款</button>
+        </div>
+      </div>
+
+      <form id="invoice-form" class="card form-card">
+        <input type="hidden" id="invoice-id" />
+        <div class="form-grid">
+          <div class="field">
+            <label for="invoice-project">关联项目 *</label>
+            <select id="invoice-project" required>
+              <option value="">加载中…</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="invoice-amount">金额（元）*</label>
+            <input id="invoice-amount" type="number" min="1" step="0.01" required placeholder="例：14000" />
+          </div>
+          <div class="field">
+            <label for="invoice-issued">开票日期</label>
+            <input id="invoice-issued" type="date" />
+          </div>
+          <div class="field">
+            <label for="invoice-due">收款截止</label>
+            <input id="invoice-due" type="date" />
+          </div>
+          <div class="field field-wide">
+            <label for="invoice-note">备注</label>
+            <input id="invoice-note" type="text" placeholder="例：首期 50%" />
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary" id="invoice-submit">开账单</button>
+          <button type="button" class="btn btn-ghost hidden" id="invoice-cancel">取消编辑</button>
+        </div>
+      </form>
+
+      <div class="card table-card">
+        <table>
+          <thead>
+            <tr>
+              <th>账单号</th>
+              <th>项目</th>
+              <th>客户</th>
+              <th class="num">金额</th>
+              <th>状态</th>
+              <th>开票日</th>
+              <th>收款截止</th>
+              <th>到账日</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody id="invoice-list"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 工时 -->
+    <section class="panel" id="panel-time">
+      <div class="panel-head">
+        <div>
+          <h2>工时记录</h2>
+          <p class="muted">记录每个项目投入的时间，作为收入统计与报价依据。</p>
+        </div>
+      </div>
+
+      <form id="time-form" class="card form-card">
+        <div class="form-grid">
+          <div class="field">
+            <label for="time-project">所属项目 *</label>
+            <select id="time-project" required>
+              <option value="">加载中…</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="time-date">日期</label>
+            <input id="time-date" type="date" />
+          </div>
+          <div class="field">
+            <label for="time-hours">工时（小时）*</label>
+            <input id="time-hours" type="number" min="0.5" max="24" step="0.5" required placeholder="例：6.5" />
+          </div>
+          <div class="field field-wide">
+            <label for="time-note">做了什么</label>
+            <input id="time-note" type="text" placeholder="例：首页高保真设计" />
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">记录工时</button>
+        </div>
+      </form>
+
+      <p class="muted" id="time-summary"></p>
+      <div class="card table-card">
+        <table>
+          <thead>
+            <tr>
+              <th>日期</th>
+              <th>项目</th>
+              <th>客户</th>
+              <th class="num">工时</th>
+              <th>备注</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody id="time-list"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 统计 -->
+    <section class="panel" id="panel-stats">
+      <div class="panel-head">
+        <div>
+          <h2>收入统计</h2>
+          <p class="muted">开票、收款、工时与项目分布一览。</p>
+        </div>
+      </div>
+
+      <div id="stat-cards" class="stat-grid"></div>
+
+      <div class="stats-columns">
+        <div class="card chart-card">
+          <h3>近 6 个月开票与收款</h3>
+          <div id="stat-by-month"></div>
+        </div>
+        <div class="card chart-card">
+          <h3>客户收入排行</h3>
+          <table>
+            <thead>
+              <tr><th>客户</th><th class="num">已收款</th><th class="num">待收款</th></tr>
+            </thead>
+            <tbody id="stat-by-client"></tbody>
+          </table>
+          <h3 class="mt">项目状态分布</h3>
+          <div id="stat-status" class="chip-row"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Freelance Tracker · 数据保存在 server/data.json · 后端端口 3022</p>
+  </footer>
+
+  <div id="toast" class="toast" role="status"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/clients.js"></script>
+  <script src="js/projects.js"></script>
+  <script src="js/invoices.js"></script>
+  <script src="js/stats.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

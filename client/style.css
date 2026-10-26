@@ -1,0 +1,406 @@
+/* Freelance Tracker 前端样式 */
+:root {
+  --bg: #f4f5fb;
+  --card: #ffffff;
+  --ink: #1c2130;
+  --muted: #6b7280;
+  --accent: #4f46e5;
+  --accent-dark: #4338ca;
+  --accent-soft: #eef2ff;
+  --border: #e5e7eb;
+  --green: #047857;
+  --green-bg: #d1fae5;
+  --blue: #1d4ed8;
+  --blue-bg: #dbeafe;
+  --gray: #4b5563;
+  --gray-bg: #f3f4f6;
+  --orange: #c2410c;
+  --orange-bg: #ffedd5;
+  --amber: #b45309;
+  --amber-bg: #fef3c7;
+  --red: #b91c1c;
+  --red-bg: #fee2e2;
+  --shadow: 0 1px 3px rgba(17, 24, 39, 0.07), 0 6px 18px rgba(17, 24, 39, 0.05);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+h1, h2, h3 { margin: 0; font-weight: 600; }
+p { margin: 0; }
+
+.hidden { display: none !important; }
+.muted { color: var(--muted); }
+.small { font-size: 12px; }
+.mono { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; }
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+.text-danger { color: var(--red); }
+.mt { margin-top: 22px; }
+
+/* ---------- 顶栏 ---------- */
+.topbar {
+  background: #171c2e;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.25);
+}
+
+.topbar-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.brand { display: flex; align-items: center; gap: 12px; }
+
+.logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex: none;
+}
+
+.brand-text h1 { font-size: 18px; letter-spacing: 0.3px; }
+.brand-text p { font-size: 12px; color: #a5b4fc; }
+
+.tabs { display: flex; gap: 6px; background: rgba(255, 255, 255, 0.08); padding: 4px; border-radius: 12px; }
+
+.tab {
+  border: 0;
+  background: transparent;
+  color: #cbd5f5;
+  font-size: 14px;
+  padding: 8px 18px;
+  border-radius: 9px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.tab:hover { color: #fff; }
+.tab.active { background: #fff; color: #1e1b4b; font-weight: 600; }
+
+/* ---------- 布局 ---------- */
+.container { max-width: 1180px; margin: 0 auto; padding: 26px 24px 40px; }
+
+.panel { display: none; }
+.panel.active { display: block; animation: fadein 0.18s ease; }
+
+@keyframes fadein {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: none; }
+}
+
+.panel-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.panel-head h2 { font-size: 20px; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+
+/* ---------- 表单 ---------- */
+.form-card { padding: 18px 20px; margin-bottom: 20px; }
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px 14px;
+}
+
+.field { display: flex; flex-direction: column; gap: 5px; }
+.field-wide { grid-column: span 2; }
+
+.field label { font-size: 12px; color: var(--muted); font-weight: 600; }
+
+.field input,
+.field select {
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 8px 10px;
+  font-size: 14px;
+  font-family: inherit;
+  background: #fff;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  min-width: 0;
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+.form-actions { display: flex; gap: 10px; margin-top: 14px; }
+
+/* ---------- 按钮 ---------- */
+.btn {
+  border: 1px solid transparent;
+  border-radius: 9px;
+  padding: 8px 18px;
+  font-size: 14px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover { background: var(--accent-dark); }
+
+.btn-ghost { background: #fff; border-color: var(--border); color: var(--ink); }
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+.btn-danger-ghost { background: #fff; border-color: var(--border); color: var(--red); }
+.btn-danger-ghost:hover { border-color: var(--red); background: var(--red-bg); }
+
+.btn-sm { padding: 4px 10px; font-size: 12px; border-radius: 7px; }
+
+/* ---------- 客户卡片 ---------- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 14px;
+}
+
+.client-card { padding: 16px 18px; }
+
+.card-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.card-title-row h3 { font-size: 16px; }
+
+.kv { margin: 0; display: grid; gap: 4px; }
+.kv > div { display: flex; gap: 8px; font-size: 13px; }
+.kv dt { color: var(--muted); flex: none; width: 34px; }
+.kv dd { margin: 0; word-break: break-all; }
+
+.card-actions { display: flex; gap: 8px; margin-top: 12px; }
+
+/* ---------- 徽章 ---------- */
+.badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.st-planning { background: var(--gray-bg); color: var(--gray); }
+.st-inprogress { background: var(--blue-bg); color: var(--blue); }
+.st-completed { background: var(--green-bg); color: var(--green); }
+.st-paused { background: var(--orange-bg); color: var(--orange); }
+.st-unpaid { background: var(--amber-bg); color: var(--amber); }
+.st-overdue { background: var(--red-bg); color: var(--red); }
+.badge-neutral { background: var(--accent-soft); color: var(--accent); font-weight: 500; }
+
+/* ---------- 表格 ---------- */
+.table-card { overflow-x: auto; }
+
+.table-card table { width: 100%; border-collapse: collapse; }
+
+.table-card th,
+.table-card td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.table-card thead th {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 600;
+  background: #fafbfe;
+  white-space: nowrap;
+}
+
+.table-card tbody tr:last-child td { border-bottom: 0; }
+.table-card tbody tr:hover { background: #f8f9ff; }
+
+.actions-cell { white-space: nowrap; }
+.row-actions { display: flex; align-items: center; gap: 6px; }
+
+.status-select {
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  font-size: 12px;
+  padding: 3px 4px;
+  background: #fff;
+  color: var(--ink);
+  font-family: inherit;
+}
+
+.empty { color: var(--muted); text-align: center; padding: 26px 0 !important; }
+
+/* ---------- 筛选 ---------- */
+.filter-group { display: flex; gap: 6px; background: #fff; border: 1px solid var(--border); padding: 4px; border-radius: 10px; }
+
+.filter-btn {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font-size: 13px;
+  padding: 5px 14px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.filter-btn.active { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+
+/* ---------- 统计 ---------- */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.stat-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-label { font-size: 12px; color: var(--muted); font-weight: 600; }
+.stat-value { font-size: 24px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.stat-sub { font-size: 12px; color: var(--muted); }
+.stat-card.good .stat-value { color: var(--green); }
+.stat-card.warn .stat-value { color: var(--amber); }
+
+.stats-columns {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 14px;
+  align-items: start;
+}
+
+.chart-card { padding: 18px 20px; }
+.chart-card h3 { font-size: 15px; margin-bottom: 14px; }
+.chart-card table { width: 100%; border-collapse: collapse; }
+.chart-card th, .chart-card td { padding: 7px 6px; border-bottom: 1px solid var(--border); text-align: left; font-size: 13px; }
+.chart-card thead th { color: var(--muted); font-size: 12px; }
+.chart-card tbody tr:last-child td { border-bottom: 0; }
+
+.bar-row {
+  display: grid;
+  grid-template-columns: 64px 1fr auto;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.bar-label { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+.bar-track {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.bar { height: 9px; border-radius: 5px; min-width: 2px; transition: width 0.3s ease; }
+.bar-invoiced { background: #c7d2fe; }
+.bar-paid { background: var(--accent); }
+
+.bar-value { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+.chip-row { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.chip {
+  background: var(--gray-bg);
+  color: var(--gray);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.chip b { font-weight: 700; }
+
+/* ---------- 工时 ---------- */
+#time-summary { margin: -6px 0 10px 2px; font-size: 13px; }
+
+/* ---------- 其他 ---------- */
+.footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+  padding: 10px 0 30px;
+}
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%) translateY(8px);
+  background: #1c2130;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s;
+  z-index: 50;
+  max-width: 80vw;
+}
+
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+.toast.toast-error { background: #dc2626; }
+
+/* ---------- 响应式 ---------- */
+@media (max-width: 960px) {
+  .form-grid { grid-template-columns: repeat(2, 1fr); }
+  .stat-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats-columns { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 560px) {
+  .form-grid { grid-template-columns: 1fr; }
+  .field-wide { grid-column: auto; }
+  .stat-grid { grid-template-columns: 1fr; }
+  .topbar-inner { flex-direction: column; align-items: stretch; }
+}
