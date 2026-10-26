@@ -1,0 +1,398 @@
+{
+  "seq": {
+    "client": 7,
+    "project": 13,
+    "invoice": 9,
+    "time": 11
+  },
+  "clients": [
+    {
+      "id": 1,
+      "name": "林晚晴",
+      "company": "晚晴传媒",
+      "email": "wanqing@wanqingmedia.cn",
+      "phone": "138-2001-3344",
+      "notes": "老客户，内容营销方向，付款及时",
+      "createdAt": "2026-07-02T09:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "name": "陈志远",
+      "company": "志远科技",
+      "email": "chen@zhiyuan.tech",
+      "phone": "139-1102-8877",
+      "notes": "SaaS 创业公司，需求变化快，排期留缓冲",
+      "createdAt": "2026-07-10T09:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "name": "苏若冰",
+      "company": "若冰设计工作室",
+      "email": "ruobing@rb-design.cn",
+      "phone": "136-5577-9012",
+      "notes": "同行互推客户，插画类需求为主",
+      "createdAt": "2026-07-18T09:00:00.000Z"
+    },
+    {
+      "id": 4,
+      "name": "王建国",
+      "company": "建国餐饮集团",
+      "email": "jianguo@jg-canyin.cn",
+      "phone": "135-2246-7788",
+      "notes": "连锁餐饮，走对公转账，需要签合同",
+      "createdAt": "2026-08-01T09:00:00.000Z"
+    },
+    {
+      "id": 5,
+      "name": "李思颖",
+      "company": "思颖教育",
+      "email": "siying@sy-edu.cn",
+      "phone": "137-8801-2233",
+      "notes": "教育行业，寒暑假需求集中",
+      "createdAt": "2026-08-12T09:00:00.000Z"
+    },
+    {
+      "id": 6,
+      "name": "赵一鸣",
+      "company": "一鸣影视",
+      "email": "yiming@ym-film.cn",
+      "phone": "188-3344-5566",
+      "notes": "短视频与宣传片，按月按量结算",
+      "createdAt": "2026-08-25T09:00:00.000Z"
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "clientId": 1,
+      "name": "品牌视觉升级",
+      "description": "Logo 迭代与全套 VI 应用规范",
+      "status": "in_progress",
+      "startDate": "2026-09-01",
+      "deadline": "2026-11-15",
+      "fee": 28000,
+      "hourlyRate": 350,
+      "createdAt": "2026-09-01T09:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "clientId": 2,
+      "name": "官网重构",
+      "description": "营销官网 8 个页面 + CMS 接入",
+      "status": "in_progress",
+      "startDate": "2026-09-10",
+      "deadline": "2026-12-01",
+      "fee": 45000,
+      "hourlyRate": 400,
+      "createdAt": "2026-09-10T09:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "clientId": 3,
+      "name": "年度插画合集",
+      "description": "12 幅节气插画，已交付源文件",
+      "status": "completed",
+      "startDate": "2026-06-15",
+      "deadline": "2026-09-30",
+      "fee": 18000,
+      "hourlyRate": 300,
+      "createdAt": "2026-06-15T09:00:00.000Z"
+    },
+    {
+      "id": 4,
+      "clientId": 4,
+      "name": "门店点单小程序",
+      "description": "扫码点单 + 会员卡券，分两期上线",
+      "status": "planning",
+      "startDate": "2026-11-01",
+      "deadline": "2027-01-10",
+      "fee": 52000,
+      "hourlyRate": 420,
+      "createdAt": "2026-10-05T09:00:00.000Z"
+    },
+    {
+      "id": 5,
+      "clientId": 5,
+      "name": "少儿编程课件",
+      "description": "Scratch 主题课件 16 讲配图与排版",
+      "status": "in_progress",
+      "startDate": "2026-10-08",
+      "deadline": "2026-11-30",
+      "fee": 22000,
+      "hourlyRate": 280,
+      "createdAt": "2026-10-08T09:00:00.000Z"
+    },
+    {
+      "id": 6,
+      "clientId": 6,
+      "name": "产品宣传片",
+      "description": "90 秒产品宣传片全案剪辑",
+      "status": "completed",
+      "startDate": "2026-08-20",
+      "deadline": "2026-10-12",
+      "fee": 36000,
+      "hourlyRate": 380,
+      "createdAt": "2026-08-20T09:00:00.000Z"
+    },
+    {
+      "id": 7,
+      "clientId": 2,
+      "name": "App UI 设计",
+      "description": "iOS / Android 双端设计规范与关键页",
+      "status": "planning",
+      "startDate": "2026-12-01",
+      "deadline": "2027-02-01",
+      "fee": 30000,
+      "hourlyRate": 400,
+      "createdAt": "2026-10-15T09:00:00.000Z"
+    },
+    {
+      "id": 8,
+      "clientId": 1,
+      "name": "双十一营销落地页",
+      "description": "活动落地页 + A/B 两版视觉",
+      "status": "completed",
+      "startDate": "2026-08-01",
+      "deadline": "2026-08-20",
+      "fee": 9600,
+      "hourlyRate": 320,
+      "createdAt": "2026-08-01T09:00:00.000Z"
+    },
+    {
+      "id": 9,
+      "clientId": 2,
+      "name": "运营数据看板",
+      "description": "内部数据可视化看板，暂缓等排期",
+      "status": "paused",
+      "startDate": "2026-09-25",
+      "deadline": "2026-12-20",
+      "fee": 26000,
+      "hourlyRate": 380,
+      "createdAt": "2026-09-25T09:00:00.000Z"
+    },
+    {
+      "id": 10,
+      "clientId": 5,
+      "name": "寒假招生宣传册",
+      "description": "A4 三折页 + 易拉宝主视觉",
+      "status": "planning",
+      "startDate": "2026-10-26",
+      "deadline": "2026-11-05",
+      "fee": 8000,
+      "hourlyRate": 300,
+      "createdAt": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "id": 11,
+      "clientId": 4,
+      "name": "菜单与包装设计",
+      "description": "秋冬新菜单与 3 款产品包装",
+      "status": "in_progress",
+      "startDate": "2026-10-10",
+      "deadline": "2026-12-15",
+      "fee": 15000,
+      "hourlyRate": 320,
+      "createdAt": "2026-10-10T09:00:00.000Z"
+    },
+    {
+      "id": 12,
+      "clientId": 6,
+      "name": "短视频后期剪辑",
+      "description": "每月 8 条短视频剪辑与包装",
+      "status": "in_progress",
+      "startDate": "2026-10-01",
+      "deadline": "2026-11-08",
+      "fee": 12000,
+      "hourlyRate": 300,
+      "createdAt": "2026-10-01T09:00:00.000Z"
+    }
+  ],
+  "invoices": [
+    {
+      "id": 1,
+      "number": "INV-2026-001",
+      "projectId": 3,
+      "clientId": 3,
+      "amount": 18000,
+      "status": "paid",
+      "issuedDate": "2026-09-28",
+      "dueDate": "2026-10-15",
+      "paidDate": "2026-10-05",
+      "note": "插画合集全额尾款",
+      "createdAt": "2026-09-28T09:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "number": "INV-2026-002",
+      "projectId": 6,
+      "clientId": 6,
+      "amount": 36000,
+      "status": "paid",
+      "issuedDate": "2026-10-10",
+      "dueDate": "2026-10-25",
+      "paidDate": "2026-10-18",
+      "note": "宣传片全款",
+      "createdAt": "2026-10-10T09:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "number": "INV-2026-003",
+      "projectId": 8,
+      "clientId": 1,
+      "amount": 9600,
+      "status": "paid",
+      "issuedDate": "2026-08-18",
+      "dueDate": "2026-09-01",
+      "paidDate": "2026-08-25",
+      "note": "落地页一次性结清",
+      "createdAt": "2026-08-18T09:00:00.000Z"
+    },
+    {
+      "id": 4,
+      "number": "INV-2026-004",
+      "projectId": 1,
+      "clientId": 1,
+      "amount": 14000,
+      "status": "unpaid",
+      "issuedDate": "2026-10-20",
+      "dueDate": "2026-11-20",
+      "paidDate": null,
+      "note": "品牌视觉升级 首期 50%",
+      "createdAt": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "id": 5,
+      "number": "INV-2026-005",
+      "projectId": 2,
+      "clientId": 2,
+      "amount": 22500,
+      "status": "unpaid",
+      "issuedDate": "2026-10-22",
+      "dueDate": "2026-11-22",
+      "paidDate": null,
+      "note": "官网重构 首期 50%",
+      "createdAt": "2026-10-22T09:00:00.000Z"
+    },
+    {
+      "id": 6,
+      "number": "INV-2026-006",
+      "projectId": 5,
+      "clientId": 5,
+      "amount": 11000,
+      "status": "unpaid",
+      "issuedDate": "2026-10-24",
+      "dueDate": "2026-11-24",
+      "paidDate": null,
+      "note": "课件制作 首期 50%",
+      "createdAt": "2026-10-24T09:00:00.000Z"
+    },
+    {
+      "id": 7,
+      "number": "INV-2026-007",
+      "projectId": 12,
+      "clientId": 6,
+      "amount": 6000,
+      "status": "paid",
+      "issuedDate": "2026-10-15",
+      "dueDate": "2026-10-31",
+      "paidDate": "2026-10-21",
+      "note": "10 月上半月 4 条剪辑",
+      "createdAt": "2026-10-15T09:00:00.000Z"
+    },
+    {
+      "id": 8,
+      "number": "INV-2026-008",
+      "projectId": 11,
+      "clientId": 4,
+      "amount": 7500,
+      "status": "unpaid",
+      "issuedDate": "2026-10-25",
+      "dueDate": "2026-12-15",
+      "paidDate": null,
+      "note": "菜单设计 首期 50%",
+      "createdAt": "2026-10-25T09:00:00.000Z"
+    }
+  ],
+  "timeEntries": [
+    {
+      "id": 1,
+      "projectId": 1,
+      "date": "2026-10-06",
+      "hours": 5.5,
+      "note": "竞品调研与 moodboard",
+      "createdAt": "2026-10-06T09:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "projectId": 1,
+      "date": "2026-10-08",
+      "hours": 7,
+      "note": "Logo 三个方案草图",
+      "createdAt": "2026-10-08T09:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "projectId": 2,
+      "date": "2026-10-09",
+      "hours": 6.5,
+      "note": "首页高保真设计",
+      "createdAt": "2026-10-09T09:00:00.000Z"
+    },
+    {
+      "id": 4,
+      "projectId": 2,
+      "date": "2026-10-13",
+      "hours": 8,
+      "note": "CMS 数据模型设计",
+      "createdAt": "2026-10-13T09:00:00.000Z"
+    },
+    {
+      "id": 5,
+      "projectId": 5,
+      "date": "2026-10-14",
+      "hours": 5,
+      "note": "第 1-2 讲配图",
+      "createdAt": "2026-10-14T09:00:00.000Z"
+    },
+    {
+      "id": 6,
+      "projectId": 12,
+      "date": "2026-10-15",
+      "hours": 4.5,
+      "note": "短视频 3 条粗剪",
+      "createdAt": "2026-10-15T09:00:00.000Z"
+    },
+    {
+      "id": 7,
+      "projectId": 11,
+      "date": "2026-10-17",
+      "hours": 6,
+      "note": "秋冬菜单首版",
+      "createdAt": "2026-10-17T09:00:00.000Z"
+    },
+    {
+      "id": 8,
+      "projectId": 1,
+      "date": "2026-10-19",
+      "hours": 7.5,
+      "note": "VI 应用规范",
+      "createdAt": "2026-10-19T09:00:00.000Z"
+    },
+    {
+      "id": 9,
+      "projectId": 2,
+      "date": "2026-10-21",
+      "hours": 7,
+      "note": "项目列表页联调",
+      "createdAt": "2026-10-21T09:00:00.000Z"
+    },
+    {
+      "id": 10,
+      "projectId": 5,
+      "date": "2026-10-23",
+      "hours": 4,
+      "note": "第 3-4 讲排版",
+      "createdAt": "2026-10-23T09:00:00.000Z"
+    }
+  ]
+}
