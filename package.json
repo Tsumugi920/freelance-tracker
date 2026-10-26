@@ -1,0 +1,16 @@
+{
+  "name": "freelance-tracker",
+  "version": "1.0.0",
+  "description": "自由职业管理：客户、项目、账单与收款、工时记录与收入统计",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
